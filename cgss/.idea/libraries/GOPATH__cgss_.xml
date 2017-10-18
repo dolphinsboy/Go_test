@@ -1,26 +1,24 @@
 <component name="libraryTable">
   <library name="GOPATH &lt;cgss&gt;">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/calc" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/simplemath" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/github.com" />
-      <root url="file://$PROJECT_DIR$/../Sorter/sorter/src/algorithms" />
-      <root url="file://$PROJECT_DIR$/../mplayer_go/src/mp" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/.DS_Store" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/calc" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/simplemath" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../Sorter/sorter/src/algorithms" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/.DS_Store" />
       <root url="file:///usr/local/Cellar/go/1.3.3/src/github.com" />
-      <root url="file://$PROJECT_DIR$/../mplayer_go/src/mlib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
     <excluded>
       <root url="file://$PROJECT_DIR$" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/github.com/tools/godep/.vscode" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/github.com/kr/pretty/.git" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/github.com/kr/fs/.git" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/github.com/pmezard/go-difflib/.git" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/github.com/tools/godep/.git" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/github.com/tools/godep/.github" />
-      <root url="file://$PROJECT_DIR$/../Go/calcproj/src/github.com/kr/text/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/tools/godep/.vscode" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/kr/pretty/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/kr/fs/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/pmezard/go-difflib/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/tools/godep/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/tools/godep/.github" />
+      <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/kr/text/.git" />
     </excluded>
   </library>
 </component>
