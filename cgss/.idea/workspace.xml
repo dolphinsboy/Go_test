@@ -721,7 +721,7 @@
       <workItem from="1508206291718" duration="10634000" />
       <workItem from="1508299074311" duration="2032000" />
       <workItem from="1508310115818" duration="6000" />
-      <workItem from="1508310220897" duration="123000" />
+      <workItem from="1508310220897" duration="132000" />
     </task>
     <task id="LOCAL-00001" summary="update intelliJ Idea config">
       <created>1508310318639</created>
@@ -729,11 +729,17 @@
       <option name="project" value="LOCAL" />
       <updated>1508310318639</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update intelliJ Idea config">
+      <created>1508310351129</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1508310351129</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14396000" />
+    <option name="totallyTimeSpent" value="14405000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="988" extended-state="0" />
