@@ -11,7 +11,6 @@
     <JAVADOC />
     <SOURCES />
     <excluded>
-      <root url="file://$PROJECT_DIR$" />
       <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/tools/godep/.vscode" />
       <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/kr/pretty/.git" />
       <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/kr/fs/.git" />
@@ -19,6 +18,7 @@
       <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/tools/godep/.git" />
       <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/tools/godep/.github" />
       <root url="file://$PROJECT_DIR$/../../Go/calcproj/src/github.com/kr/text/.git" />
+      <root url="file://$PROJECT_DIR$" />
     </excluded>
   </library>
 </component>
