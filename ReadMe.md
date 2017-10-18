@@ -1,3 +1,4 @@
+##mplayer
 ### 测试
 
 ```
@@ -36,4 +37,28 @@ Enter command->
 play a
 Unsupported music type e
 Enter command->
+```
+
+##Game
+
+```
+Command> h   
+
+                Commands:
+                        login <username><level><exp>
+                        logout <username>
+                        send <message>
+                        listplayer
+                        quit(q)
+                        help(h)
+                
+Command> login guosong12 3 4
+Command> listplayer
+1 : &{guosong 1 2 0 <nil>}
+2 : &{guosong12 3 4 0 <nil>}
+Command> send hello
+guosong received message hello
+guosong12 received message hello
+Command> 
+
 ```
