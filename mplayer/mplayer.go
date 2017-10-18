@@ -13,7 +13,6 @@ import (
 
 var lib * library.MusicManager
 var id int = 1
-var ctrl, signal chan int
 
 func handleLibCommands(tokens []string) {
 	switch tokens[1] {
