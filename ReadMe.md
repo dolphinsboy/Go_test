@@ -1,4 +1,4 @@
-##mplayer
+## mplayer
 ### 测试
 
 ```
@@ -39,7 +39,7 @@ Unsupported music type e
 Enter command->
 ```
 
-##Game
+## Game
 
 ```
 Command> h   
