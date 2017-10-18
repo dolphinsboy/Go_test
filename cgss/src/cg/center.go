@@ -8,6 +8,7 @@ import (
 )
 
 //_下划线，是特殊的变量名，任何赋予它的值都会丢弃
+//实现继承的功能
 var _ ipc.Server = &CenterServer{}
 
 type Message struct {
