@@ -31,6 +31,7 @@ func main() {
 ```
 
 ###生成公钥和私钥的方法
+https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl
 
 ```
 openssl genrsa -out server.key 2048
