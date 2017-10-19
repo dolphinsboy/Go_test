@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"io/ioutil"
 )
 const (
 	UPLOAD_DIR  = "./uploads"
@@ -52,14 +53,44 @@ func uploadHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func isExists(path string) bool{
+	_, err := os.Stat(path)
+	if err == nil{
+		return true
+	}else {
+		return false
+	}
+}
+
+func listHandler(w http.ResponseWriter, r*http.Request) {
+	files, err := ioutil.ReadDir(UPLOAD_DIR)
+	if checkError(w, err){
+		return
+	}
+
+	var listHtml string
+
+	for _, file :=range files{
+		imgId := file.Name()
+		listHtml +="<li><a href=\"/view?id="+imgId+"\">"+imgId+"</a></li>"
+	}
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	io.WriteString(w, listHtml)
+}
+
 func viewHandler(w http.ResponseWriter, r *http.Request) {
 	imageId := r.FormValue("id")
 	imagePath := UPLOAD_DIR + "/" + imageId
+	if exists := isExists(imagePath); !exists{
+		http.NotFound(w, r)
+		return
+	}
 	w.Header().Set("Content-Type", "image")
 	http.ServeFile(w, r, imagePath)
 }
 
 func main() {
+	http.HandleFunc("/", listHandler)
 	http.HandleFunc("/upload", uploadHandler)
 	http.HandleFunc("/view", viewHandler)
 
