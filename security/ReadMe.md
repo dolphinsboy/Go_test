@@ -4,30 +4,29 @@
 package main
 import (
     "net/http"
-        "fmt"
-        )
+    "fmt"
+)
 
 const(
     PORT = 8080
-        DOMAIN = "localhost"
-            TEMPLATE = "hello"
-            )
+    DOMAIN = "localhost"
+    TEMPLATE = "hello"
+)
 
 func rootHandler(w http.ResponseWriter, r*http.Request){
-        w.Header().Set("Content-Type", "text/html")
-            w.Header().Set("Content-Length", fmt.Sprint(len(TEMPLATE)))
-                w.Write([]byte(TEMPLATE))
+    w.Header().Set("Content-Type", "text/html")
+    w.Header().Set("Content-Length", fmt.Sprint(len(TEMPLATE)))
+    w.Write([]byte(TEMPLATE))
 }
 
 func main() {
-        http.HandleFunc(fmt.Sprintf("%s:%d/", DOMAIN, PORT), rootHandler)
-            err :=http.ListenAndServeTLS(fmt.Sprintf(":%d", PORT), "server.crt", "server.key", nil)
+    http.HandleFunc(fmt.Sprintf("%s:%d/", DOMAIN, PORT), rootHandler)
+    err :=http.ListenAndServeTLS(fmt.Sprintf(":%d", PORT), "server.crt", "server.key", nil)
 
-                if err != nil {
-                            fmt.Println("ListenAndServeTLS failed:", err.Error())
-                                }
+    if err != nil {
+        fmt.Println("ListenAndServeTLS failed:", err.Error())
+    }
 }
-
 ```
 
 ### 生成公钥和私钥的方法
@@ -45,5 +44,7 @@ openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out serv
 ```
 https://localhost:8080
 ```
+
+**注意是https，否则出现tls: first record does not look like a TLS handshake**
 
 
