@@ -5,10 +5,39 @@ import (
 	"log"
 	"os"
 	"io/ioutil"
+	"html/template"
+	"path"
+	"strings"
 )
 const (
 	UPLOAD_DIR  = "./uploads"
+	TEMPLATE_DIR = "./views"
 )
+
+var templates = make(map[string]*template.Template)
+//templates := make(map[string]*template.Template)
+
+func init() {
+	files, err := ioutil.ReadDir(TEMPLATE_DIR)
+	if err != nil{
+		panic(err)
+		return
+	}
+
+	var templateName, templatePath string
+
+	for _, fileNo :=range files{
+		templateName = fileNo.Name()
+		if ext:=path.Ext(templateName); ext != ".html"{
+			continue
+		}
+
+		templatePath = TEMPLATE_DIR + "/" + templateName
+		t := template.Must(template.ParseFiles(templatePath))
+		tmp1 := strings.Split(templateName, ".")[0]
+		templates[tmp1] = t
+	}
+}
 
 func checkError(w http.ResponseWriter, err error) bool{
 	if err != nil{
@@ -20,13 +49,13 @@ func checkError(w http.ResponseWriter, err error) bool{
 
 func uploadHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
-		//设置返回的格式为Html，否则输出到浏览器上就是字符串
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		err := readHtml(w,"upload", nil)
 
-		io.WriteString(w, "<form method=\"POST\" action=\"/upload\" " +
-		" enctype=\"multipart/form-data\">" +
-		"Choose an image to upload:<input name=\"image\" type=\"file\" />" +
-		"<input type=\"submit\" value=\"Upload\" />" + "</form>")
+		//		t, err := template.ParseFiles("upload.html")
+		if checkError(w, err){
+			return
+		}
+//		t.Execute(w, nil)
 		return
 	}else if r.Method == "POST"{
 		file, head, err := r.FormFile("image")
@@ -68,14 +97,31 @@ func listHandler(w http.ResponseWriter, r*http.Request) {
 		return
 	}
 
-	var listHtml string
-
-	for _, file :=range files{
-		imgId := file.Name()
-		listHtml +="<li><a href=\"/view?id="+imgId+"\">"+imgId+"</a></li>"
+	locals := make(map[string]interface{})
+	images := []string{}
+	for _, fileno := range files{
+		images = append(images, fileno.Name())
 	}
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	io.WriteString(w, listHtml)
+
+	locals["images"] = images
+	err =readHtml(w, "list", locals)
+//	t, err := template.ParseFiles("list.html")
+	if checkError(w, err){
+		return
+	}
+//
+//	t.Execute(w, locals)
+}
+
+func readHtml(w http.ResponseWriter, templateName string, locals map[string]interface{})(err error){
+//	t, err := template.ParseFiles(templateName + ".html")
+//	if err != nil{
+//		return err
+//	}
+//	err = t.Execute(w, locals)
+//	return err
+	err = templates[templateName].Execute(w, locals)
+	return
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
